@@ -6,12 +6,13 @@ on:
 # making a change
 jobs: 
   action:
-    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Actions
+        uses: actions/checkout@v2
 
       - name: Badgr Create Badge
+        if: ${{ github.event.pull_request.merged == true }}
         uses: yajushiSri/Badgr-Create-Badge@1.0.0
         id: badge
         with:
@@ -20,3 +21,4 @@ jobs:
           sha: ${{github.sha}}
           username: ${{secrets.BADGR_USERNAME}}
           password: ${{secrets.BADGR_PASSWORD}}
+        run: echo "${{ github.event.pull_request.merged == true }}"
