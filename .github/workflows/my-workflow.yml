@@ -21,4 +21,6 @@ jobs:
           sha: ${{github.sha}}
           username: ${{secrets.BADGR_USERNAME}}
           password: ${{secrets.BADGR_PASSWORD}}
+        
+      - name: Checking PR state
         run: echo "${{ github.event.pull_request.merged == true }}"
