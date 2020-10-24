@@ -1,0 +1,22 @@
+name: Badgr Actions
+
+on:
+  pull_request:
+    types: [closed, labeled]
+
+jobs:
+  if: github.event.pull_request.merged == 'true'
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Badgr Create Badge
+        uses: yajushiSri/Badgr-Create-Badge@1.0.0
+        id: badge
+          with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            repo: ${{github.repository}}
+            sha: ${{github.sha}}
+            username: ${{secrets.BADGR_USERNAME}}
+            password: ${{secrets.BADGR_PASSWORD}}
