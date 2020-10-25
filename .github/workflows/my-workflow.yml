@@ -13,7 +13,7 @@ jobs:
 
       - name: Badgr Create Badge
         if: ${{ github.event.pull_request.merged == true }}
-        uses: yajushiSri/Badgr-Create-Badge@1.1.0
+        uses: yajushiSri/Badgr-Create-Badge@v1.0.0
         id: badge
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
