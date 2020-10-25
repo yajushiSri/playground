@@ -3,7 +3,7 @@ name: Badgr Actions
 on:
   pull_request:
     types: [closed, labeled]
-# making a change
+
 jobs: 
   action:
     runs-on: ubuntu-latest
@@ -13,7 +13,7 @@ jobs:
 
       - name: Badgr Create Badge
         if: ${{ github.event.pull_request.merged == true }}
-        uses: yajushiSri/Badgr-Create-Badge@1.0.1
+        uses: yajushiSri/Badgr-Create-Badge@1.1.0
         id: badge
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
